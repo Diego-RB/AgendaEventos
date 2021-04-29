@@ -1,0 +1,108 @@
+<div class="card rounded shadow-sm">
+  <form [formGroup]="form">
+    <div class="p-3">
+      <!-- <p>Form value: {{form.value | json}}</p>
+      <p>Form valid: {{form.status | json}}</p> -->
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Tema</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.tema)"
+            formControlName="tema" placeholder="Insira o Tema">
+          <div *ngIf="f.tema.errors?.required" class="invalid-feedback">
+            Tema é obrigatório.
+          </div>
+          <div *ngIf="f.tema.errors?.minlength" class="invalid-feedback">
+            Tema deve ter no mínimo 4 caracteres.
+          </div>
+          <div *ngIf="f.tema.errors?.maxlength" class="invalid-feedback">
+            Tema deve ter no máximo 50 caracteres.
+          </div>
+          </div>
+          </div>
+      <div class="form-row">
+        <div class="form-group col-md-8">
+          <label>Local</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.local)"
+            formControlName="local" placeholder="">
+          <div *ngIf="f.local.errors?.required && f.local.touched" class="invalid-feedback">
+            Local é obrigatório.
+          </div>
+        </div>
+        <div class="form-group col-md-4">
+          <label>Data e Hora</label>
+          <input type="datetime" class="form-control"
+            [ngClass]="cssValidator(f.dataEvento)"
+            value="{{evento.dataEvento | DateFormatPipe}}"
+            bsDatepicker
+            [bsConfig]="bsConfig"
+            formControlName="dataEvento" placeholder="">
+          <div *ngIf="f.dataEvento.errors?.required && f.dataEvento.touched" class="invalid-feedback">
+            Data e Hora é obrigatório.
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-2">
+          <label>Qtd Pessoas</label>
+          <input type="number" class="form-control" [ngClass]="cssValidator(f.qtdPessoas)"
+            formControlName="qtdPessoas" placeholder="">
+          <div *ngIf="f.qtdPessoas.errors?.required && f.qtdPessoas.touched" class="invalid-feedback">
+            Qtd Pessoas é obrigatório.
+          </div>
+          <div *ngIf="f.qtdPessoas.errors?.max && f.qtdPessoas.touched" class="invalid-feedback">
+            Qtd Pessoas deve ser menor que 120000.
+          </div>
+          </div>
+        <div class="form-group col-md-4">
+          <label>Imagem</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.imagemURL)"
+            formControlName="imagemURL" placeholder="imagem">
+          <div *ngIf="f.imagemURL.errors?.required && f.imagemURL.touched" class="invalid-feedback">
+            Imagem é obrigatório.
+          </div>
+        </div>
+        <div class="form-group col-sm">
+          <label>Tipo</label>
+          <select formControlName="tipo" class="form-control"
+          [ngClass]="{ 'is-invalid': f.tipo.errors && f.tipo.touched }">
+          <option value=""></option>
+          <option value="E">Exclusivo</option>
+          <option value="C">Compartilhado</option>
+        </select>
+        <div *ngIf="f.tipo.errors && f.tipo.touched" class="invalid-feedback">
+          <div *ngIf="f.tipo.errors.required">Tipo é obrigatório</div>
+        </div>
+      </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group col-md-12">
+          <label>Descrição</label>
+          <input type="text" class="form-control" [ngClass]="cssValidator(f.descricao)"
+            formControlName="descricao" placeholder="Insira a Descrição">
+          <div *ngIf="f.descricao.errors?.required" class="invalid-feedback">
+            Dascrição é obrigatório.
+          </div>
+          <div *ngIf="f.descricao.errors?.minlength" class="invalid-feedback">
+            Dascrição deve ter no mínimo 4 caracteres.
+          </div>
+          <div *ngIf="f.descricao.errors?.maxlength" class="invalid-feedback">
+            Dascrição deve ter no máximo 600 caracteres.
+          </div>
+          </div>
+          </div>
+    </div>
+    <div class="card-footer">
+      <div class="d-flex">
+        <button class="btn btn-outline-secondary mr-auto border" (click)="resetForm()">
+          Cancelar Alteração
+        </button>
+        <button class="btn btn-success" [disabled]="!form.valid" (click)="salvarEvento()">
+          <!-- <span class="spinner-border spinner-border-sm mr-1"></span> -->
+          Salvar Evento
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+
