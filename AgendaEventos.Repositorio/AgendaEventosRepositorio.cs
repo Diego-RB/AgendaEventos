@@ -2,9 +2,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AgendaEventos.Dominio;
-using Microsoft.Data.SqlClient;
 using Microsoft.Extensions.Configuration;
 using Dapper;
+using System.Data.SqlClient;
+using AgendaEventos.Dominio.Identity;
 
 namespace AgendaEventos.Repositorio
 {
@@ -92,13 +93,13 @@ namespace AgendaEventos.Repositorio
                             inner Join UsuariosEventos UE on E.Id = UE.EventoId inner Join Usuarios U on UE.UsuarioId = U.Id
                             where UE.UsuarioId = @usuarioId    
                         ";
-                var evento = connection.Query<Evento, Usuario, Evento>(sql, MapResults, splitOn: "Nome");
+                var evento = connection.Query<Evento, User, Evento>(sql, MapResults, splitOn: "Nome");
 
                 return evento.ToList();
             }
         }
-        private Evento MapResults (Evento evento, Usuario user){
-                    evento.Usuario = user;
+        private Evento MapResults (Evento evento, User user){
+                    evento.User = user;
                     return evento;
         }
 
@@ -118,7 +119,7 @@ namespace AgendaEventos.Repositorio
         }
 
         //Usuario
-        public async Task<Usuario> GetUsuarioByIdAsync(int usuarioId)
+        public async Task<User> GetUsuarioByIdAsync(int usuarioId)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {     
@@ -128,12 +129,12 @@ namespace AgendaEventos.Repositorio
                         ";
 
                 var usuario = connection.QueryMultiple(sql, new { @Id = usuarioId });
-                var result = usuario.ReadSingle<Usuario>();
+                var result = usuario.ReadSingle<User>();
                 return result;  
             }
         }
 
-        public async Task<Usuario> GetUsuarioByNomeAsync(string nomeUsuario)
+        public async Task<User> GetUsuarioByNomeAsync(string nomeUsuario)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {     
@@ -143,12 +144,12 @@ namespace AgendaEventos.Repositorio
                         ";
 
                 var usuario = connection.QueryMultiple(sql, new { @nome = nomeUsuario });
-                var result = usuario.ReadSingle<Usuario>();
+                var result = usuario.ReadSingle<User>();
                 return result;  
             }
         }
 
-        public async Task<Usuario> GetUsuarioBySenhaAsync(string nomeUsuario)
+        public async Task<User> GetUsuarioBySenhaAsync(string nomeUsuario)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {     
@@ -158,7 +159,7 @@ namespace AgendaEventos.Repositorio
                         ";
 
                 var usuario = connection.QueryMultiple(sql, new { @nome = nomeUsuario });
-                var result = usuario.ReadSingle<Usuario>();
+                var result = usuario.ReadSingle<User>();
                 return result;  
             }
         }

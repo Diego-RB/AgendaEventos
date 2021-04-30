@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using AgendaEventos.Dominio.Identity;
 
 namespace AgendaEventos.Dominio
 {
@@ -11,8 +12,8 @@ namespace AgendaEventos.Dominio
         public string Tema { get; set; }
         public string Descricao { get; set; }
         public char Tipo { get; set; }
-        public int UsuarioId { get; set; }
-        public Usuario Usuario { get; set; }
+        public int UserId { get; set; }
+        public User User { get; set; }
         public List<UsuarioEvento> UsuariosEventos { get; set; }
     }
 }

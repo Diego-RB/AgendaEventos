@@ -1,5 +1,6 @@
 using AgendaEventos.API.Dtos;
 using AgendaEventos.Dominio;
+using AgendaEventos.Dominio.Identity;
 using AutoMapper;
 
 namespace AgendaEventos.API.Helpers
@@ -9,8 +10,8 @@ namespace AgendaEventos.API.Helpers
         public AutoMapperProfiles()
         {
             CreateMap<Evento, EventoDto>().ReverseMap();
-            CreateMap<Usuario, UsuarioDto>().ReverseMap();
-            CreateMap<Usuario, UsuarioLoginDto>().ReverseMap();
+            CreateMap<User, UserDto>().ReverseMap();
+            CreateMap<User, UserLoginDto>().ReverseMap();
             CreateMap<UsuarioEvento, UsuarioEventoDto>().ReverseMap();
 
 

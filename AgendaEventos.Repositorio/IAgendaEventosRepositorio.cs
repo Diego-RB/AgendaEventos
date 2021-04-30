@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using AgendaEventos.Dominio;
+using AgendaEventos.Dominio.Identity;
 
 namespace AgendaEventos.Repositorio
 {
@@ -22,8 +23,8 @@ namespace AgendaEventos.Repositorio
         Task<Evento> GetEventoByIdAsync(int eventoId);
 
         //Usuario
-        Task<Usuario> GetUsuarioByIdAsync(int usuarioId);
-        Task<Usuario> GetUsuarioByNomeAsync(string nomeUsuario);
-        Task<Usuario> GetUsuarioBySenhaAsync(string nomeUsuario);
+        Task<User> GetUsuarioByIdAsync(int usuarioId);
+        Task<User> GetUsuarioByNomeAsync(string nomeUsuario);
+        Task<User> GetUsuarioBySenhaAsync(string nomeUsuario);
     }
 }

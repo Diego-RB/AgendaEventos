@@ -11,7 +11,7 @@ using AutoMapper;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ProAgil.WebAPI.Controllers
+namespace AgendaEventos.API.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

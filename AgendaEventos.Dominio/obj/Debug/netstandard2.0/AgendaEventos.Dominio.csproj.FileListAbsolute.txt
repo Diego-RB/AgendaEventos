@@ -1,0 +1,9 @@
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\bin\Debug\netstandard2.0\AgendaEventos.Dominio.deps.json
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\bin\Debug\netstandard2.0\AgendaEventos.Dominio.dll
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\bin\Debug\netstandard2.0\AgendaEventos.Dominio.pdb
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\obj\Debug\netstandard2.0\AgendaEventos.Dominio.csprojAssemblyReference.cache
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\obj\Debug\netstandard2.0\AgendaEventos.Dominio.csproj.CoreCompileInputs.cache
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\obj\Debug\netstandard2.0\AgendaEventos.Dominio.AssemblyInfoInputs.cache
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\obj\Debug\netstandard2.0\AgendaEventos.Dominio.AssemblyInfo.cs
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\obj\Debug\netstandard2.0\AgendaEventos.Dominio.dll
+C:\Users\diego\Desktop\AgendaEventos\AgendaEventos.Dominio\obj\Debug\netstandard2.0\AgendaEventos.Dominio.pdb

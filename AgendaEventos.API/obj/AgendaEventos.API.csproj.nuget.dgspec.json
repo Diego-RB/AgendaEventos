@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj": {}
+    "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj": {}
   },
   "projects": {
-    "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj": {
+    "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj",
+        "projectUniqueName": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj",
         "projectName": "AgendaEventos.API",
-        "projectPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj",
+        "projectPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.API\\AgendaEventos.API.csproj",
         "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.API\\obj\\",
+        "outputPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.API\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -23,18 +23,20 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netcoreapp2.2"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netcoreapp2.2": {
             "projectReferences": {
-              "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj": {
-                "projectPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj"
+              "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj": {
+                "projectPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj"
+              },
+              "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj": {
+                "projectPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj"
               }
             }
           }
@@ -46,76 +48,54 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netcoreapp2.2": {
           "dependencies": {
             "AutoMapper.Extensions.Microsoft.DependencyInjection": {
               "target": "Package",
-              "version": "[8.1.1, )"
+              "version": "[4.0.1, )"
             },
-            "Microsoft.AspNetCore.Authentication": {
+            "Microsoft.AspNetCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "Microsoft.AspNetCore.Http.Abstractions": {
               "target": "Package",
               "version": "[2.2.0, )"
             },
-            "Microsoft.AspNetCore.Authentication.JwtBearer": {
-              "target": "Package",
-              "version": "[5.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore": {
-              "target": "Package",
-              "version": "[5.0.5, )"
-            },
-            "Microsoft.EntityFrameworkCore.Design": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "Microsoft.AspNetCore.Razor.Design": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
-              "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
+            "Microsoft.NETCore.App": {
               "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.2.0, )",
+              "autoReferenced": true
             },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
-              "version": "[5.6.3, )"
-            },
-            "System.IdentityModel.Tokens.Jwt": {
-              "target": "Package",
-              "version": "[6.11.0, )"
+              "version": "[6.0.3, )"
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.AspNetCore.App": {
-              "privateAssets": "none"
-            },
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     },
-    "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj": {
+    "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj",
+        "projectUniqueName": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj",
         "projectName": "AgendaEventos.Dominio",
-        "projectPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj",
+        "projectPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj",
         "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Dominio\\obj\\",
+        "outputPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -127,15 +107,14 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netstandard2.0": {
             "projectReferences": {}
           }
         },
@@ -146,41 +125,35 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netstandard2.0": {
           "dependencies": {
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.2.0, )"
+            },
+            "NETStandard.Library": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.0.3, )",
+              "autoReferenced": true
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     },
-    "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj": {
+    "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj",
+        "projectUniqueName": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj",
         "projectName": "AgendaEventos.Repositorio",
-        "projectPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj",
+        "projectPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Repositorio\\AgendaEventos.Repositorio.csproj",
         "packagesPath": "C:\\Users\\diego\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Repositorio\\obj\\",
+        "outputPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Repositorio\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft\\Xamarin\\NuGet\\",
@@ -192,18 +165,17 @@
           "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
         ],
         "originalTargetFrameworks": [
-          "net5.0"
+          "netstandard2.0"
         ],
         "sources": {
           "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net5.0": {
-            "targetAlias": "net5.0",
+          "netstandard2.0": {
             "projectReferences": {
-              "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj": {
-                "projectPath": "C:\\Users\\diego\\Documents\\Projetos\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj"
+              "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj": {
+                "projectPath": "C:\\Users\\diego\\Desktop\\AgendaEventos\\AgendaEventos.Dominio\\AgendaEventos.Dominio.csproj"
               }
             }
           }
@@ -215,46 +187,52 @@
         }
       },
       "frameworks": {
-        "net5.0": {
-          "targetAlias": "net5.0",
+        "netstandard2.0": {
           "dependencies": {
+            "AutoMapper.Extensions.Microsoft.DependencyInjection": {
+              "target": "Package",
+              "version": "[4.0.1, )"
+            },
             "Dapper": {
+              "target": "Package",
+              "version": "[2.0.78, )"
+            },
+            "Dapper.Contrib": {
               "target": "Package",
               "version": "[2.0.78, )"
             },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.2.0, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.2.0, )"
             },
-            "Microsoft.EntityFrameworkCore.Tools": {
+            "NETStandard.Library": {
+              "suppressParent": "All",
               "target": "Package",
-              "version": "[5.0.5, )"
+              "version": "[2.0.3, )",
+              "autoReferenced": true
+            },
+            "SlapperAutomapper.Core": {
+              "target": "Package",
+              "version": "[1.0.0, )"
+            },
+            "System.ValueTuple": {
+              "target": "Package",
+              "version": "[4.5.0, )"
             }
           },
           "imports": [
-            "net461",
-            "net462",
-            "net47",
-            "net471",
-            "net472",
-            "net48"
+            "net461"
           ],
           "assetTargetFallback": true,
-          "warn": true,
-          "frameworkReferences": {
-            "Microsoft.NETCore.App": {
-              "privateAssets": "all"
-            }
-          },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.104\\RuntimeIdentifierGraph.json"
+          "warn": true
         }
       }
     }
