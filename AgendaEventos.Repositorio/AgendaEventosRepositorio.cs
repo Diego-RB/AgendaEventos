@@ -6,6 +6,9 @@ using Microsoft.Extensions.Configuration;
 using Dapper;
 using System.Data.SqlClient;
 using AgendaEventos.Dominio.Identity;
+using System.Globalization;
+using System.Threading;
+using System;
 
 namespace AgendaEventos.Repositorio
 {
@@ -55,17 +58,79 @@ namespace AgendaEventos.Repositorio
                 return listaEventos;
             }
         }
-        public List<Evento> GetAllEventosAsync()
+
+        public async Task<int> GetQtdUsuariosEvento(int eventoId)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {
+                var sql =@"select COUNT(UE.EventoId) as QtdParticipantes
+                            from Eventos E
+                            inner Join UsuariosEventos UE on E.Id = UE.EventoId inner Join AspNetUsers U on UE.UsuarioId = U.Id
+                            group by UE.EventoId
+                            having UE.EventoId = @eventoId";
+                var evento = connection.QueryMultiple(sql, new { @eventoId = eventoId });
+                var result = evento.ReadSingle<int>();
+                return result;
+            }
+        }
+         public List<Evento> GetAllEventos()
+        {
+            using (SqlConnection connection = new SqlConnection(_conectionString))
+            {
+                var sql =@"SELECT  E.Id ,E.Local ,E.DataEvento, E.Tipo ,E.Tema ,E.Descricao ,U.UserName
+                            FROM Eventos E
+                            inner Join AspNetUsers U on E.UserId = U.Id
+                            Order by DataEvento asc  
+                        ";
+                var evento = connection.Query<Evento, User, Evento>(sql, Results, splitOn: "UserName");
 
-                var listaEventos = connection.Query<Evento>("select * from Eventos");
-                return listaEventos.ToList();
+                return evento.ToList();
             }
         }
 
-        public List<Evento> GetAllEventosByDataAsync(string dataInicio, string dataFim)
+        private Evento Results (Evento evento, User user){
+            evento.User = user;
+            return evento;
+        }
+
+        public async Task<List<Evento>> GetUsuarioParticipandoEvento(int eventoId)
+        {
+            using (SqlConnection connection = new SqlConnection(_conectionString))
+            {
+                var sql =@"select E.Id, E.DataEvento, E.Tema, E.Local, E.Descricao, E.Tipo, U.UserName
+                            from Eventos E
+                            inner Join UsuariosEventos UE on E.Id = UE.EventoId inner Join AspNetUsers U on UE.UsuarioId = U.Id
+                            where UE.EventoId = @eventoId  
+                        ";
+                var evento = await connection.QueryAsync<Evento, User, Evento>(sql, MapResults, new { @eventoId = eventoId }, splitOn: "UserName");
+
+                return evento.ToList();
+            }
+        }
+
+        private Evento MapResults (Evento evento, User user){
+                    evento.User = user;
+                    return evento;
+        }
+
+         public List<Evento> GetAllEventosParticipando(int usuarioId)
+        {
+            
+            using (SqlConnection connection = new SqlConnection(_conectionString))
+                    {
+                        var sql =@"select E.Id, E.DataEvento, E.Tema, E.Local, E.Descricao, E.Tipo
+                                    from Eventos E
+                                    inner Join UsuariosEventos UE on E.Id = UE.EventoId inner Join AspNetUsers U on UE.UsuarioId = U.Id
+                                    where UE.UsuarioId = @userId
+                                    
+                                ";
+                        var evento = connection.Query<Evento>(sql, new { @userId = usuarioId });
+
+                        return evento.ToList();
+                    } 
+        }
+
+        public List<Evento> GetAllEventosByData(string dataInicio, string dataFim)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {
@@ -74,7 +139,7 @@ namespace AgendaEventos.Repositorio
             }
         }
 
-        public List<Evento> GetAllEventosByTemaAsync(string tema)
+        public List<Evento> GetAllEventosByTema(string tema)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {
@@ -84,23 +149,14 @@ namespace AgendaEventos.Repositorio
         }
     
 
-        public List<Evento> GetAllEventoUsuarioAsync(int usuarioId)
+        public List<Evento> GetAllEventoUsuario(int usuarioId)
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {
-                var sql =@"select E.Id, E.DataEvento, E.Tema, E.Descricao, E.Tipo, U.Nome
-                            from Eventos E
-                            inner Join UsuariosEventos UE on E.Id = UE.EventoId inner Join Usuarios U on UE.UsuarioId = U.Id
-                            where UE.UsuarioId = @usuarioId    
-                        ";
-                var evento = connection.Query<Evento, User, Evento>(sql, MapResults, splitOn: "Nome");
-
-                return evento.ToList();
+                connection.Open();
+                var listaEventos = connection.Query<Evento>("select * from Eventos where userId=@usuarioId", new { @usuarioId = usuarioId } );
+                return listaEventos.ToList();
             }
-        }
-        private Evento MapResults (Evento evento, User user){
-                    evento.User = user;
-                    return evento;
         }
 
         public async Task<Evento> GetEventoByIdAsync(int eventoId)
@@ -124,7 +180,7 @@ namespace AgendaEventos.Repositorio
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {     
                 var sql = @"SELECT *      
-                            From Usuarios
+                            From AspNetUsers
                             where Id = @Id
                         ";
 
@@ -138,24 +194,9 @@ namespace AgendaEventos.Repositorio
         {
             using (SqlConnection connection = new SqlConnection(_conectionString))
             {     
-                var sql = @"SELECT Nome      
-                            From Usuarios
-                            where Nome = @nome
-                        ";
-
-                var usuario = connection.QueryMultiple(sql, new { @nome = nomeUsuario });
-                var result = usuario.ReadSingle<User>();
-                return result;  
-            }
-        }
-
-        public async Task<User> GetUsuarioBySenhaAsync(string nomeUsuario)
-        {
-            using (SqlConnection connection = new SqlConnection(_conectionString))
-            {     
-                var sql = @"SELECT *      
-                            From Usuarios
-                            where nome = @nome
+                var sql = @"SELECT FullName      
+                            From AspNetUsers
+                            where FullName = @nome
                         ";
 
                 var usuario = connection.QueryMultiple(sql, new { @nome = nomeUsuario });
